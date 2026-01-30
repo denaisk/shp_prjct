@@ -2,10 +2,8 @@ import time
 import random
 from prometheus_client import start_http_server, Counter, Gauge
 
-# 1. Определяем метрики
-# Counter — счетчик, который только растет (как общее число заказов)
+# Метрики
 ORDERS_TOTAL = Counter('shop_orders_total', 'Total number of orders', ['status', 'product_category'])
-# Gauge — показатель, который может идти вверх и вниз (как цена последнего заказа)
 LAST_ORDER_PRICE = Gauge('shop_last_order_price', 'Price of the last processed order')
 
 def generate_data():
@@ -13,7 +11,6 @@ def generate_data():
     statuses = ['success', 'success', 'success', 'failed'] # 25% ошибок для интереса
 
     while True:
-        # Имитируем случайные данные
         cat = random.choice(categories)
         status = random.choice(statuses)
         price = random.uniform(10.0, 500.0)
