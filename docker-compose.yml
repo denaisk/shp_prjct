@@ -28,3 +28,4 @@ services:
 # Описание тома для хранения данных (на одном уровне с services)
 volumes:
   prometheus_data:
+  grafana_data:
